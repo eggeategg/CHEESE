@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-html,
+/* html,
 body {
   margin: 0;
   padding: 0;
@@ -69,4 +69,4 @@ button {
   font-size: 22px;
   cursor: pointer;
   margin: 5px;
-}
+} */

@@ -57,13 +57,13 @@ let imageCards = [
   new imageCard(
     "falling",
     "./images/DSC_0226.jpg",
-    "santa maria",
+    "SLO",
     "description"
   ),
   new imageCard(
     "falling",
     "f",
-    "santa maria",
+    "santa barbara",
     "description"
   ),
   new imageCard(
@@ -127,7 +127,7 @@ function showCards() {
   //}
 //}
 
-function editCardContent(card, newTitle, newImageURL, bullet1) {
+function editCardContent(card, newTitle, newImageURL, location, description) {
   card.style.display = "block";
 
   const cardHeader = card.querySelector("h2");
@@ -137,10 +137,15 @@ function editCardContent(card, newTitle, newImageURL, bullet1) {
   cardImage.src = newImageURL;
   cardImage.alt = newTitle + " Poster";
 
-  const cardBullet1 = card.querySelector("li")
-  cardBullet1.src = bullet1;
+  const cardBullet1 = card.querySelector("#bullet1")
+  cardBullet1.textContent = location;
   cardBullet1.alt = ":(";
 
+  const cardBullet2 = card.querySelector("#bullet2")
+  cardBullet2.textContent = description;
+  cardBullet2.alt = ":(";
+
+  
   // You can use console.log to help you debug!
   // View the output by right clicking on your website,
   // select "Inspect", then click on the "Console" tab
