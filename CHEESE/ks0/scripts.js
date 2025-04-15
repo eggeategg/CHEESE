@@ -133,7 +133,7 @@ function editCardContent(card, newTitle, newImageURL, location, description) {
   const cardHeader = card.querySelector("h2");
   cardHeader.textContent = newTitle;
 
-  const cardImage = card.querySelector("img");
+  const cardImage = card.querySelector("#photo");
   cardImage.src = newImageURL;
   cardImage.alt = newTitle + " Poster";
 
