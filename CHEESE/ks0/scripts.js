@@ -51,8 +51,8 @@ let imageCards = [
   new imageCard(
     "falling",
     "./images/DSC_0172.jpg",
-    "santa maria",
-    "description"
+    "Downtown, San Louis Obispo",
+    "This photo was taken as part of a project for a photography class I was taking at the time. The project was based around the idea that although man creates, nature allways finds a way to take back the ground."
   ),
   new imageCard(
     "falling",
@@ -140,6 +140,7 @@ function editCardContent(card, newTitle, newImageURL, location, description) {
   const cardBullet1 = card.querySelector("#bullet1")
   cardBullet1.textContent = location;
   cardBullet1.alt = ":(";
+  cardBullet1.classList.add("whitespace-nowrap", "tracking-wide");
 
   const cardBullet2 = card.querySelector("#bullet2")
   cardBullet2.textContent = description;

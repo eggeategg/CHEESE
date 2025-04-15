@@ -7,20 +7,32 @@
     <script type="text/javascript" src="scripts.js"></script>
   </head>
 
-  <body>
-    <header class="main-header">
-      <h1 class="title">image person</h1>
-    </header>
-    <div id="card-container"></div>
-    <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li id="bullet1">Bullet Point 1</li>
-          <li id="bullet2">Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
+  <body class="bg-slate-600">
+    <body>
+      <header class="flex justify-between items-start bg-slate-500 p-7 w-full">
+        <h1 class="title font-mono text-3xl">image person</h1>
+        <img src="./images/IMG_0212.JPG" class="w-16 h-16 rounded-full object-cover" alt="Profile Image">
+      </header>
+    </body>
+  
+    <div id="card-container" class="p-9 space-y-6"></div>
+       <div class="card w-[1000px] bg-slate-400 shadow-2xl rounded-2xl" style="display: none">
+         <div class=" p-3 card-content flex row w-[400px] space-x-10">
+            
+            <img src="" alt="TV Show Poster" />
+           
+            <div class=" w-[300px]">
+              <div class="flex row justify-around align-bottom  w-[550px]">
+                <h2 class=" text-2xl font-mono underline">TV Show Title</h2>
+               <p id="bullet1" class="text-2xl font-mono" >Bullet Point 1</p>
+              </div>
+              <ul class="">
+                
+                
+                <li id="bullet2" class = " py-3 font-serif">Bullet Point 2</li>
+                <li>Bullet Point 3</li>
+             </ul>
+          </div>
       </div>
     </div>
     <div class="footer">
