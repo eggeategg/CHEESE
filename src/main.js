@@ -6,17 +6,23 @@ import profileImage from "/images/IMG_0479 3.jpg"
 
 document.querySelector('#app').innerHTML = `
 <header class="flex justify-between items-start bg-slate-500 p-7 w-full">
-<h1 class="title font-mono text-3xl">image person</h1>
+  <h1 class="title font-mono text-3xl text-white">image person</h1>
 
-<div class="rounded-full border-4 border-white p-1 bg-slate-300">
-
-  <img src=${profileImage} class="w-16 h-16 rounded-full object-cover" alt="Profile Image">
-    
-</div>
-
+  <div class="rounded-full border-4 border-white p-1 bg-slate-300">
+    <img src=${profileImage} class="w-16 h-16 rounded-full object-cover" alt="Profile Image">
+  </div>
 </header>
-
+<div class="flex justify-end pr-10 mt-2">
+  <select id="sortDropdown" class="p-2 rounded-md bg-white text-black border border-gray-300 shadow hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-400">
+    <option value="">Sort Cards</option>
+    <option value="az">Title A–Z</option>
+    <option value="za">Title Z–A</option>
+  </select>
+</div>
 <div id="card-container" class="p-9 space-y-6"></div>
+
+
+
 <div class="card w-[1000px] bg-slate-400 shadow-2xl rounded-2xl" style="display: none">
  <div class=" p-3 card-content flex row w-[400px] space-x-10">
     
