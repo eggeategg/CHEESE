@@ -14,6 +14,7 @@ document.querySelector('#app').innerHTML = `
 </header>
 <div class="flex justify-end pr-10 mt-2">
   <select id="sortDropdown" class="p-2 rounded-md bg-white text-black border border-gray-300 shadow hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-400">
+  <label for="sortDropdown" class="mr-2 text-white font-mono">Sort by:</label>
     <option value="">Sort Cards</option>
     <option value="az">Title A-Z</option>
     <option value="za">Title Z-A</option>
@@ -79,30 +80,37 @@ class imageCard {
 
 let imageCards = [
   new imageCard(
-    "falling",
+    "A",
     image1,
     "Downtown, San Louis Obispo",
     "This photo was taken as part of a project for a photography class I was taking at the time. The project was based around the idea that although man creates, nature allways finds a way to take back the ground.",
-    
+    50,
+    30,
   
   ),
   new imageCard(
-    "falling",
+    "B",
     image2,
     "SLO",
-    "description"
+    "description",
+    10,
+    30
   ),
   new imageCard(
-    "falling",
-    "f",
-    "santa barbara",
-    "description"
+    "B",
+    image2,
+    "SLO",
+    "description",
+    10,
+    30
   ),
   new imageCard(
-    "falling",
-    "f",
-    "santa maria",
-    "description"
+    "B",
+    image2,
+    "SLO",
+    "description",
+    10,
+    30
   )
 ]
 
@@ -129,20 +137,21 @@ function showCards() {
    
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageSrc, location, description); // Edit title and image
+    editCardContent(nextCard, title, imageSrc, location, description, imageCard.x, imageCard.y);
+    // Edit title and image
     cardContainer.appendChild(nextCard); // Add new card to the container
   }
 }
 
 function _sortAZ() {
   imageCards.sort((a, b) => a.title.localeCompare(b.title));
-  _showCards();
+  showCards();
 }
 
 // Function to sort imageCards by name (Z-A)
 function _sortZA() {
   imageCards.sort((a, b) => b.title.localeCompare(a.title));
-  _showCards();
+  showCards();
 }
 const imageTitles = imageCards.map((imageCard) => imageCard.getName());
 
@@ -151,8 +160,14 @@ imageTitles.sort((a, b) => a.localeCompare(b));
 
 
 
-function editCardContent(card, newTitle, newImageURL, location, description) {
+function editCardContent(card, newTitle, newImageURL, location, description, x, y) {
+
   card.style.display = "block";
+
+  card.classList.add("transition", "duration-500", "ease-in", "opacity-0");
+  requestAnimationFrame(() => {
+    card.classList.remove("opacity-0");
+  });
 
   const cardHeader = card.querySelector("h2");
   cardHeader.textContent = newTitle;
@@ -164,14 +179,16 @@ function editCardContent(card, newTitle, newImageURL, location, description) {
 
   // Add overlay button
   const overlay = document.createElement("div");
-  overlay.className = "absolute top-[80%] left-[50%] group";
+  overlay.className = `absolute group`;
+  overlay.style.top = `${y}%`;
+  overlay.style.left = `${x}%`;
 
   overlay.innerHTML = `
-    <button class=" p-1 rounded-full border border-gray-400 hover:bg-blue-200">
+    <button class="p-1 rounded-full border border-gray-400 hover:bg-blue-200 bg-white">
       💭
     </button>
     <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2">
-      I really enjoy the plants color in this image.
+      I really enjoy the plant's color in this image.
     </div>
   `;
 
@@ -193,16 +210,19 @@ function editCardContent(card, newTitle, newImageURL, location, description) {
  
 
 // This calls the addCards() function when the page is first loaded
-document.addEventListener("DOMContentLoaded", showCards);
 
-function quoteAlert() {
-  console.log("Button Clicked!");
-  alert(
-    "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!"
-  );
-}
+document.addEventListener("DOMContentLoaded", () => {
+  showCards();
 
-function removeLastCard() {
-  titles.pop(); // Remove last item in titles array
-  showCards(); // Call showCards again to refresh
-}
+  const dropdown = document.getElementById("sortDropdown");
+  dropdown.addEventListener("change", (e) => {
+    const value = e.target.value;
+    if (value === "az") {
+      _sortAZ();
+    } else if (value === "za") {
+      _sortZA();
+    }
+  });
+});
+
+
