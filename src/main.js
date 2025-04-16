@@ -1,4 +1,6 @@
 import "./assets/style.css"
+import image1 from "/images/DSC_0172.jpg"
+import image2 from "/images/DSC_0226.jpg"
 
 /**
  * Data Catalog Project Starter Code - SEA Stage 2
@@ -52,13 +54,13 @@ class imageCard {
 let imageCards = [
   new imageCard(
     "falling",
-    "/images/DSC_0172.jpg",
+    image1,
     "Downtown, San Louis Obispo",
     "This photo was taken as part of a project for a photography class I was taking at the time. The project was based around the idea that although man creates, nature allways finds a way to take back the ground."
   ),
   new imageCard(
     "falling",
-    "/images/DSC_0226.jpg",
+    image2,
     "SLO",
     "description"
   ),
