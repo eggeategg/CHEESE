@@ -1,17 +1,21 @@
 import "./assets/style.css"
+import profileImage from "/images/IMG_0479 3.jpg"
 import image1 from "/images/DSC_0172.jpg"
 import image2 from "/images/DSC_0226.jpg"
-import profileImage from "/images/IMG_0479 3.jpg"
+
 
 
 document.querySelector('#app').innerHTML = `
 <header class="flex justify-between items-start bg-slate-500 p-7 w-full">
-  <h1 class="title font-mono text-3xl text-white">image person</h1>
+  <h1 class="title font-mono text-3xl text-white">Personality Through Photography</h1>
 
   <div class="rounded-full border-4 border-white p-1 bg-slate-300">
     <img src=${profileImage} class="w-16 h-16 rounded-full object-cover" alt="Profile Image">
   </div>
 </header>
+
+
+
 <div class="flex justify-end pr-10 mt-2">
   <select id="sortDropdown" class="p-2 rounded-md bg-white text-black border border-gray-300 shadow hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-400">
   <label for="sortDropdown" class="mr-2 text-white font-mono">Sort by:</label>
@@ -38,7 +42,7 @@ document.querySelector('#app').innerHTML = `
         
         
         <li id="bullet2" class = " py-3 font-serif text-xl">Bullet Point 2</li>
-        <li>Bullet Point 3</li>
+        <li id="bullet3" class = " py-3 font-serif text-xl">Bullet Point 3</li>
      </ul>
   </div>
 </div>
@@ -53,29 +57,23 @@ document.querySelector('#app').innerHTML = `
 
 
 class imageCard {
-  constructor(title, image, location, description, x, y) {
+  constructor(title, image, location, date, description, x, y, ttext) {
     this.title = title;
     this.image = image;
+    this.date =date;
     this.location = location;
     this.description = description;
     this.x = x;
     this.y = y;
+    this.ttext = ttext;
 
     
   }
   //here are a couple of methods to gather data I made in the begining
-  getName() {
+  getTitle() {
     return this.title;
   }
-  getImage() {
-    return this.image;
-  }
-  getLoc() {
-    return this.location;
-  }
-  getDes() {
-    return this.description;
-  }
+  
 }
 
 let imageCards = [
@@ -84,8 +82,10 @@ let imageCards = [
     image1,
     "Downtown, San Louis Obispo",
     "This photo was taken as part of a project for a photography class I was taking at the time. The project was based around the idea that although man creates, nature allways finds a way to take back the ground.",
+    "Nov 2024",
     50,
     30,
+    "I love plants"
   
   ),
   new imageCard(
@@ -93,6 +93,7 @@ let imageCards = [
     image2,
     "SLO",
     "description",
+    "Nov 2024",
     10,
     30
   ),
@@ -101,6 +102,7 @@ let imageCards = [
     image2,
     "SLO",
     "description",
+    "Nov 2024",
     10,
     30
   ),
@@ -109,6 +111,7 @@ let imageCards = [
     image2,
     "SLO",
     "description",
+    "Nov 2024",
     10,
     30
   )
@@ -132,12 +135,13 @@ function showCards() {
     // Extract car details
     let title = imageCard.title;
     let imageSrc = imageCard.image;
+    let date =imageCard.date;
     let location = imageCard.location;
     let description = imageCard.description;
    
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageSrc, location, description, imageCard.x, imageCard.y);
+    editCardContent(nextCard, title, imageSrc, location, date, description, imageCard.x, imageCard.y, imageCard.ttext);
     // Edit title and image
     cardContainer.appendChild(nextCard); // Add new card to the container
   }
@@ -153,14 +157,14 @@ function _sortZA() {
   imageCards.sort((a, b) => b.title.localeCompare(a.title));
   showCards();
 }
-const imageTitles = imageCards.map((imageCard) => imageCard.getName());
+const imageTitles = imageCards.map((imageCard) => imageCard.getTitle());
 
 // Extracting names from imageCards array
 imageTitles.sort((a, b) => a.localeCompare(b));
 
 
 
-function editCardContent(card, newTitle, newImageURL, location, description, x, y) {
+function editCardContent(card, newTitle, newImageURL, location, date, description, x, y, ttext) {
 
   card.style.display = "block";
 
@@ -187,9 +191,9 @@ function editCardContent(card, newTitle, newImageURL, location, description, x, 
     <button class="p-1 rounded-full border border-gray-400 hover:bg-blue-200 bg-white">
       💭
     </button>
-    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2">
-      I really enjoy the plant's color in this image.
-    </div>
+       <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2 max-w-[200px] text-center">
+          ${ttext || "No thoughts yet..."}
+      </div>
   `;
 
   photoContainer.classList.add("relative");
@@ -203,6 +207,10 @@ function editCardContent(card, newTitle, newImageURL, location, description, x, 
   const cardBullet2 = card.querySelector("#bullet2");
   cardBullet2.textContent = description;
   cardBullet2.alt = ":(";
+
+  const cardBullet3 = card.querySelector("#bullet3");
+  cardBullet3.textContent = date;
+  cardBullet3.alt = ":(";
 
   console.log("new card:", newTitle, "- html: ", card);
 }
