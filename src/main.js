@@ -80,7 +80,7 @@ class imageCard {
 
 let imageCards = [
   new imageCard(
-    "Never Gone",
+    "Never is Gone",
     image1,
     "Downtown, San Louis Obispo",
     "This photo was taken as part of a project for a photography class I was taking at the time. The project was based around the idea that although man creates, nature allways finds a way to take back the ground.",
