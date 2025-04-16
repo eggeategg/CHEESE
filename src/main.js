@@ -1,3 +1,5 @@
+import "./assets/style.css"
+
 /**
  * Data Catalog Project Starter Code - SEA Stage 2
  *
