@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (value === "za") {
       _sortZA();
     } else if (value === "date") {
-      _sortByDate(); // 🆕
+      _sortByDate(); //last minute addition
     }
   });
 });
