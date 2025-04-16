@@ -1,5 +1,6 @@
 {
   "name": "CHEESE",
+  "type": "module",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -25,7 +26,7 @@
     "globals": "^15.15.0",
     "vite": "^6.2.0"
   },
-  
+
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "4.9.5",
     "sass-embedded-linux-x64": "^1.85.1"
