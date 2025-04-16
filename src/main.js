@@ -52,8 +52,7 @@ document.querySelector('#app').innerHTML = `
 </div>
 
 <div class="footer">
-<button onclick="quoteAlert();">Get A Quote!</button>
-<button onclick="removeLastCard();">Remove A Card!</button>
+
 </div>
 `
 
