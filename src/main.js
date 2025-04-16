@@ -1,6 +1,7 @@
 import "./assets/style.css"
 import image1 from "/images/DSC_0172.jpg"
 import image2 from "/images/DSC_0226.jpg"
+import profileImage from "/images/IMG_0479 3.jpg"
 
 /**
  * Data Catalog Project Starter Code - SEA Stage 2
@@ -26,6 +27,46 @@ import image2 from "/images/DSC_0226.jpg"
  *    with the string you added to the array, but a broken image.
  *
  */
+document.querySelector('#app').innerHTML = `
+<header class="flex justify-between items-start bg-slate-500 p-7 w-full">
+<h1 class="title font-mono text-3xl">image person</h1>
+
+<div class="rounded-full border-4 border-white p-1 bg-slate-300">
+
+  <img src=${profileImage} class="w-16 h-16 rounded-full object-cover" alt="Profile Image">
+    
+</div>
+
+</header>
+
+<div id="card-container" class="p-9 space-y-6"></div>
+<div class="card w-[1000px] bg-slate-400 shadow-2xl rounded-2xl" style="display: none">
+ <div class=" p-3 card-content flex row w-[400px] space-x-10">
+    
+    <img  id="photo" src="" alt="TV Show Poster" />
+   
+    <div class=" w-[600px]">
+      <div class="flex row justify-around align-bottom  w-[550px]">
+        <h2 class=" text-2xl font-mono underline">TV Show Title</h2>
+       <p id="bullet1" class="text-2xl font-mono" >Bullet Point 1</p>
+      </div>
+      <ul class="">
+        
+        
+        <li id="bullet2" class = " py-3 font-serif text-xl">Bullet Point 2</li>
+        <li>Bullet Point 3</li>
+     </ul>
+  </div>
+</div>
+</div>
+
+<div class="footer">
+<button onclick="quoteAlert();">Get A Quote!</button>
+<button onclick="removeLastCard();">Remove A Card!</button>
+</div>
+`
+
+
 
 class imageCard {
   constructor(title, image, location, description) {
