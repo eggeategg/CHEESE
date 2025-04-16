@@ -15,8 +15,8 @@ document.querySelector('#app').innerHTML = `
 <div class="flex justify-end pr-10 mt-2">
   <select id="sortDropdown" class="p-2 rounded-md bg-white text-black border border-gray-300 shadow hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-400">
     <option value="">Sort Cards</option>
-    <option value="az">Title A–Z</option>
-    <option value="za">Title Z–A</option>
+    <option value="az">Title A-Z</option>
+    <option value="za">Title Z-A</option>
   </select>
 </div>
 <div id="card-container" class="p-9 space-y-6"></div>
@@ -52,11 +52,13 @@ document.querySelector('#app').innerHTML = `
 
 
 class imageCard {
-  constructor(title, image, location, description) {
+  constructor(title, image, location, description, x, y) {
     this.title = title;
     this.image = image;
     this.location = location;
     this.description = description;
+    this.x = x;
+    this.y = y;
 
     
   }
@@ -80,7 +82,9 @@ let imageCards = [
     "falling",
     image1,
     "Downtown, San Louis Obispo",
-    "This photo was taken as part of a project for a photography class I was taking at the time. The project was based around the idea that although man creates, nature allways finds a way to take back the ground."
+    "This photo was taken as part of a project for a photography class I was taking at the time. The project was based around the idea that although man creates, nature allways finds a way to take back the ground.",
+    
+  
   ),
   new imageCard(
     "falling",
