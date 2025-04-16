@@ -1,7 +1,9 @@
 import "./assets/style.css"
 import profileImage from "/images/IMG_0479 3.jpg"
 import image1 from "/images/DSC_0172.jpg"
-import image2 from "/images/DSC_0226.jpg"
+import image2 from "/images/DSC_0358.jpg"
+import image3 from "/images/DSC_0341.jpg"
+import image4 from "/images/DSC_0064.jpg"
 
 
 
@@ -83,37 +85,41 @@ let imageCards = [
     "Downtown, San Louis Obispo",
     "This photo was taken as part of a project for a photography class I was taking at the time. The project was based around the idea that although man creates, nature allways finds a way to take back the ground.",
     "Nov 2024",
-    50,
     30,
+    70,
     "I love plants"
   
   ),
   new imageCard(
-    "B",
+    "Caged Creature",
     image2,
-    "SLO",
-    "description",
-    "Nov 2024",
-    10,
-    30
+    "Santa Maria Recyclers",
+    "The subject of this image being an abandoned car just makes me feel sad. Although feeling emotions for an object ins't uncommon some often are judged for this, I believe things like cars live and have souls.",
+    "Oct 2024",
+    15,
+    55,
+    "The sad eyes bring out the emotion"
   ),
   new imageCard(
-    "B",
-    image2,
-    "SLO",
-    "description",
-    "Nov 2024",
-    10,
-    30
+    "Open Heart",
+    image3,
+    "Santa Maria Recyclers",
+    "I feel like the engine is trully the heart of any car, it allows it to move in ways no one could ever think could be possible. Like any living thing I think one can create a bond that can last a lifetime.",
+    "Oct 2024",
+    23,
+    60,
+    "The distrubutor cap adds a wonder touch of color"
   ),
   new imageCard(
-    "B",
-    image2,
-    "SLO",
-    "description",
-    "Nov 2024",
-    10,
-    30
+    "Pilar",
+    image4,
+    "Santa Maria Mall",
+    "I was sitting in my car when i took this photo, it was at a time when I was struggling with finding subjects for photos, as I was sitting there, the only thing I couldn't get my eye off of was those rays of light on the wall. I enjoyed how it showed the texture of the wall as well as the corosion stains.",
+    "Aug 2024",
+    30,
+    45,
+    "Light shines beautifully"
+  
   )
 ]
 
