@@ -147,6 +147,7 @@ function showCards() {
   }
 }
 
+
 //function showCards() {
  // const cardContainer = document.getElementById("card-container");
  // cardContainer.innerHTML = "";
@@ -178,25 +179,40 @@ function editCardContent(card, newTitle, newImageURL, location, description) {
   const cardHeader = card.querySelector("h2");
   cardHeader.textContent = newTitle;
 
+  const photoContainer = card.querySelector("#photo").parentElement;
   const cardImage = card.querySelector("#photo");
   cardImage.src = newImageURL;
   cardImage.alt = newTitle + " Poster";
 
-  const cardBullet1 = card.querySelector("#bullet1")
+  // Add overlay button
+  const overlay = document.createElement("div");
+  overlay.className = "absolute top-[80%] left-[50%] group";
+
+  overlay.innerHTML = `
+    <button class=" p-1 rounded-full border border-gray-400 hover:bg-blue-200">
+      💭
+    </button>
+    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2">
+      I really enjoy the plants color in this image.
+    </div>
+  `;
+
+  photoContainer.classList.add("relative");
+  photoContainer.appendChild(overlay);
+
+  const cardBullet1 = card.querySelector("#bullet1");
   cardBullet1.textContent = location;
   cardBullet1.alt = ":(";
   cardBullet1.classList.add("whitespace-nowrap", "tracking-wide");
 
-  const cardBullet2 = card.querySelector("#bullet2")
+  const cardBullet2 = card.querySelector("#bullet2");
   cardBullet2.textContent = description;
   cardBullet2.alt = ":(";
 
-  
-  // You can use console.log to help you debug!
-  // View the output by right clicking on your website,
-  // select "Inspect", then click on the "Console" tab
   console.log("new card:", newTitle, "- html: ", card);
 }
+  
+ 
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
