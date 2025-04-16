@@ -24,6 +24,7 @@ document.querySelector('#app').innerHTML = `
     <option value="">Sort Cards</option>
     <option value="az">Title A-Z</option>
     <option value="za">Title Z-A</option>
+    <option value="date">Date A-Z</option>
   </select>
 </div>
 <div id="card-container" class="p-9 space-y-6"></div>
@@ -80,7 +81,7 @@ class imageCard {
 
 let imageCards = [
   new imageCard(
-    "A",
+    "Never Gone",
     image1,
     "Downtown, San Louis Obispo",
     "This photo was taken as part of a project for a photography class I was taking at the time. The project was based around the idea that although man creates, nature allways finds a way to take back the ground.",
@@ -163,6 +164,11 @@ function _sortZA() {
   imageCards.sort((a, b) => b.title.localeCompare(a.title));
   showCards();
 }
+
+function _sortByDate() {
+  imageCards.sort((a, b) => a.date.localeCompare(b.date));
+  showCards();
+}
 const imageTitles = imageCards.map((imageCard) => imageCard.getTitle());
 
 // Extracting names from imageCards array
@@ -235,6 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
       _sortAZ();
     } else if (value === "za") {
       _sortZA();
+    } else if (value === "date") {
+      _sortByDate(); // 🆕
     }
   });
 });
